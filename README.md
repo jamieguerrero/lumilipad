@@ -44,8 +44,14 @@ This will:
 
 ### GitHub
 ```bash
+# Option 1: Interactive login (developer machines)
 gh auth login
+
+# Option 2: Personal access token (containers/CI/agents)
+export GH_TOKEN="your-token-here"
 ```
+
+Get a GitHub token at: https://github.com/settings/tokens — requires `repo` scope
 
 ### Netlify
 ```bash
