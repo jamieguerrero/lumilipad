@@ -1,0 +1,36 @@
+{
+  "name": "@jamieguerrero/lumipad",
+  "version": "0.1.0",
+  "description": "Scaffold and deploy static sites to Netlify with one command",
+  "type": "module",
+  "bin": {
+    "lumipad": "./bin/cli.js"
+  },
+  "scripts": {
+    "dev": "node bin/cli.js",
+    "test": "echo \"No tests yet\" && exit 0"
+  },
+  "keywords": [
+    "netlify",
+    "static-site",
+    "deploy",
+    "scaffold",
+    "cli"
+  ],
+  "author": "Jamie Guerrero",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^12.0.0",
+    "chalk": "^5.3.0",
+    "ora": "^8.0.1",
+    "execa": "^8.0.1",
+    "inquirer": "^9.2.14"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jamieguerrero/lumipad.git"
+  }
+}
