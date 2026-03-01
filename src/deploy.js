@@ -22,6 +22,16 @@ async function initGit(projectPath) {
 
   try {
     await execa('git', ['init'], { cwd: projectPath });
+
+    // Check if git user is configured
+    try {
+      await execa('git', ['config', 'user.email'], { cwd: projectPath });
+    } catch {
+      // Set default git config if not already set
+      await execa('git', ['config', 'user.email', 'lumipad@jamieguerrero.com'], { cwd: projectPath });
+      await execa('git', ['config', 'user.name', 'Lumipad'], { cwd: projectPath });
+    }
+
     await execa('git', ['add', '.'], { cwd: projectPath });
     await execa('git', ['commit', '-m', 'Initial commit via lumipad'], { cwd: projectPath });
     await execa('git', ['branch', '-M', 'main'], { cwd: projectPath });
