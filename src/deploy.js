@@ -168,7 +168,7 @@ async function initGit(projectPath) {
     }
 
     await execa('git', ['add', '.'], { cwd: projectPath });
-    await execa('git', ['commit', '-m', 'Initial commit via lumilipad'], { cwd: projectPath });
+    await execa('git', ['commit', '-m', 'Initial commit via lumipad'], { cwd: projectPath });
     await execa('git', ['branch', '-M', 'main'], { cwd: projectPath });
 
     spinner.succeed(chalk.green('Git initialized'));
@@ -198,7 +198,7 @@ async function createGitHubRepo(projectPath, projectName) {
 
   if (!githubUsername) {
     spinner.fail(chalk.red('GitHub username not configured'));
-    throw new Error('GitHub username not configured. Run: lumilipad config github.username <your-username>');
+    throw new Error('GitHub username not configured. Run: lumipad config github.username <your-username>');
   }
 
   try {
@@ -210,7 +210,7 @@ async function createGitHubRepo(projectPath, projectName) {
       '--source=.',
       '--push',
       '--description',
-      `Created with lumilipad ✈️`
+      `Created with lumipad ✈️`
     ], { cwd: projectPath });
 
     spinner.succeed(chalk.green(`GitHub repo created: ${githubUsername}/${projectName}`));

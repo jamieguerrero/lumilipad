@@ -2,7 +2,7 @@ import fs from 'fs/promises';
 import path from 'path';
 import os from 'os';
 
-const CONFIG_DIR = path.join(os.homedir(), '.lumilipad');
+const CONFIG_DIR = path.join(os.homedir(), '.lumipad');
 const CONFIG_FILE = path.join(CONFIG_DIR, 'config.json');
 
 const DEFAULT_CONFIG = {
@@ -15,7 +15,7 @@ const DEFAULT_CONFIG = {
   },
   git: {
     email: null,  // fallback git email if not configured
-    name: 'Lumilipad',
+    name: 'lumipad',
   }
 };
 
@@ -59,13 +59,13 @@ export async function getCustomDomainBase() {
 export async function getGitEmail(fallbackDomain) {
   const config = await getConfig();
   if (config.git?.email) return config.git.email;
-  if (fallbackDomain) return `lumilipad@${fallbackDomain}`;
-  return 'lumilipad@localhost';
+  if (fallbackDomain) return `lumipad@${fallbackDomain}`;
+  return 'lumipad@localhost';
 }
 
 export async function getGitName() {
   const config = await getConfig();
-  return config.git?.name || 'Lumilipad';
+  return config.git?.name || 'lumipad';
 }
 
 export function getConfigPath() {

@@ -1,60 +1,60 @@
-# ✈️ Lumilipad
+# ✈️ Lumipad
 
 > Deploy sites to Netlify in one command
 
-**Lumilipad** (Tagalog for "flying") — scaffold new sites or deploy existing ones to Netlify.
+**Lumipad** (Tagalog for "flying") — scaffold new sites or deploy existing ones to Netlify.
 
 ## Installation
 
 ```bash
-npm install -g @jamieguerrero/lumilipad
+npm install -g @jamieguerrero/lumipad
 ```
 
 ## Quick Start
 
 ```bash
 # First time setup
-lumilipad init
+lumipad init
 
 # Deploy a new project (scaffolds from template)
-lumilipad sa my-new-site
+lumipad sa my-new-site
 
 # Deploy an existing project
-lumilipad sa my-existing-site --dir ./dist
+lumipad sa my-existing-site --dir ./dist
 
 # Deploy an SSR app (React Router, Next.js, etc.)
-lumilipad sa --ssr
+lumipad sa --ssr
 ```
 
 ## Commands
 
 | Command | Alias | What it does |
 |---------|-------|--------------|
-| `lumilipad sa <name>` | `deploy` | Deploy project (scaffolds if new, deploys if exists) |
-| `lumilipad sa --ssr` | `deploy --ssr` | Deploy SSR app (runs `netlify deploy --prod`) |
-| `lumilipad tanggalin <name>` | `remove` | Remove custom subdomain (site stays on `.netlify.app`) |
-| `lumilipad patay <name>` | `destroy` | Delete subdomain + Netlify site + GitHub repo |
-| `lumilipad config [key] [val]` | — | View/set configuration |
-| `lumilipad init` | — | Interactive setup wizard |
+| `lumipad sa <name>` | `deploy` | Deploy project (scaffolds if new, deploys if exists) |
+| `lumipad sa --ssr` | `deploy --ssr` | Deploy SSR app (runs `netlify deploy --prod`) |
+| `lumipad tanggalin <name>` | `remove` | Remove custom subdomain (site stays on `.netlify.app`) |
+| `lumipad patay <name>` | `destroy` | Delete subdomain + Netlify site + GitHub repo |
+| `lumipad config [key] [val]` | — | View/set configuration |
+| `lumipad init` | — | Interactive setup wizard |
 
 ## Usage Examples
 
 ### New static site from template
 ```bash
-lumilipad sa my-cool-site
+lumipad sa my-cool-site
 ```
 Creates `./my-cool-site`, scaffolds template, creates GitHub repo, deploys to Netlify.
 
 ### Deploy existing static directory
 ```bash
 # Directory exists at ./my-app
-lumilipad sa my-app
+lumipad sa my-app
 
 # Or specify a different directory
-lumilipad sa my-app --dir ./dist
+lumipad sa my-app --dir ./dist
 
 # Skip GitHub repo creation
-lumilipad sa my-app --dir ./build --no-github
+lumipad sa my-app --dir ./build --no-github
 ```
 
 ### Deploy SSR app (React Router, Next.js, etc.)
@@ -62,43 +62,43 @@ lumilipad sa my-app --dir ./build --no-github
 cd ~/src/dragonboat-manager
 
 # Production deploy
-lumilipad sa --ssr
+lumipad sa --ssr
 
 # Preview deploy
-lumilipad sa --ssr --preview
+lumipad sa --ssr --preview
 ```
 
 ### Remove/destroy
 ```bash
 # Remove subdomain only (site stays alive on .netlify.app)
-lumilipad tanggalin my-app
+lumipad tanggalin my-app
 
 # Nuke everything (subdomain + site + repo)
-lumilipad patay my-app
+lumipad patay my-app
 ```
 
 ## Configuration
 
-Config stored in `~/.lumilipad/config.json`.
+Config stored in `~/.lumipad/config.json`.
 
 ### Interactive Setup
 ```bash
-lumilipad init
+lumipad init
 ```
 
 ### Manual Configuration
 ```bash
 # Required: GitHub username
-lumilipad config github.username your-username
+lumipad config github.username your-username
 
 # Optional: Custom domain base (for subdomains)
-lumilipad config netlify.customDomain yourdomain.com
+lumipad config netlify.customDomain yourdomain.com
 
 # Optional: Git email for commits
-lumilipad config git.email you@example.com
+lumipad config git.email you@example.com
 
 # View all config
-lumilipad config
+lumipad config
 ```
 
 ### Config Options
@@ -119,11 +119,11 @@ lumilipad config
 
 | Scenario | Command |
 |----------|---------|
-| Brand new static site | `lumilipad sa my-site` |
-| Existing HTML/CSS/JS | `lumilipad sa my-site --dir .` |
-| Built React/Vue SPA | `npm run build && lumilipad sa my-app --dir ./dist` |
-| SSR app (dragonboat-manager) | `lumilipad sa --ssr` |
-| Preview deploy (SSR) | `lumilipad sa --ssr --preview` |
+| Brand new static site | `lumipad sa my-site` |
+| Existing HTML/CSS/JS | `lumipad sa my-site --dir .` |
+| Built React/Vue SPA | `npm run build && lumipad sa my-app --dir ./dist` |
+| SSR app (dragonboat-manager) | `lumipad sa --ssr` |
+| Preview deploy (SSR) | `lumipad sa --ssr --preview` |
 
 ## License
 

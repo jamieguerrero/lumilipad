@@ -11,7 +11,7 @@ import path from 'path';
 const program = new Command();
 
 program
-  .name('lumilipad')
+  .name('lumipad')
   .description('Deploy sites to Netlify')
   .version('0.1.0');
 
@@ -57,7 +57,7 @@ program
       const ghUser = await getGitHubUsername();
       if (!ghUser && options.github) {
         console.error(chalk.red('\n✗ GitHub username not configured.'));
-        console.error(chalk.yellow('  Run: lumilipad config github.username <your-username>'));
+        console.error(chalk.yellow('  Run: lumipad config github.username <your-username>'));
         console.error(chalk.yellow('  Or use --no-github to skip repo creation\n'));
         process.exit(1);
       }
@@ -68,7 +68,7 @@ program
       
       if (dirExists) {
         // Deploy existing directory
-        console.log(chalk.blue(`\n✈️  Lumilipad deploying existing: ${projectName}\n`));
+        console.log(chalk.blue(`\n✈️  lumipad deploying existing: ${projectName}\n`));
         const deployedUrl = await deployExisting(targetDir, projectName, { createGitHubRepo: options.github });
         console.log(chalk.green(`\n✓ ${projectName} is live! 🚀`));
         console.log(chalk.cyan(`  ${deployedUrl}\n`));
@@ -76,11 +76,11 @@ program
         // Scaffold new project
         if (!ghUser) {
           console.error(chalk.red('\n✗ GitHub username not configured.'));
-          console.error(chalk.yellow('  Run: lumilipad config github.username <your-username>\n'));
+          console.error(chalk.yellow('  Run: lumipad config github.username <your-username>\n'));
           process.exit(1);
         }
         
-        console.log(chalk.blue(`\n✈️  Lumilipad launching new: ${projectName}\n`));
+        console.log(chalk.blue(`\n✈️  lumipad launching new: ${projectName}\n`));
         const projectPath = await scaffold(projectName);
         const deployedUrl = await deploy(projectPath, projectName);
         console.log(chalk.green(`\n✓ ${projectName} is live! 🚀`));
@@ -139,7 +139,7 @@ program
       if (!key) {
         // Show all config
         const config = await getConfig();
-        console.log(chalk.blue('\n⚙️  Lumilipad Configuration\n'));
+        console.log(chalk.blue('\n⚙️  lumipad Configuration\n'));
         console.log(chalk.gray(`   Config file: ${getConfigPath()}\n`));
         console.log(JSON.stringify(config, null, 2));
         console.log();
@@ -170,11 +170,11 @@ program
 // init — interactive setup
 program
   .command('init')
-  .description('Interactive setup for lumilipad')
+  .description('Interactive setup for lumipad')
   .action(async () => {
     const inquirer = (await import('inquirer')).default;
     
-    console.log(chalk.blue('\n✈️  Lumilipad Setup\n'));
+    console.log(chalk.blue('\n✈️  lumipad Setup\n'));
     
     const answers = await inquirer.prompt([
       {
